@@ -18,6 +18,10 @@ def update_grid(old_grid, rule=None):
     pass
 
 def update_cell(cell_section: np.array):
+    centre = cell_section[1,1]
+    neightbours = cell_section
+    neightbours[1,1] = 0
+    neightbours.count('1')
     pass
 
 def display_grid(grid):
@@ -29,4 +33,40 @@ def display_grid(grid):
 def test_update_grid():
     pass
 
-print(generate_grid(5,0.1))
+def test_update_cell():
+    assert(update_cell(np.array[0,0,0],
+                       [0,0,0],
+                       [0,0,0])) == 0
+    assert(update_cell(np.array[0,0,0],
+                       [0,1,0],
+                       [0,0,0])) == 0
+    assert(update_cell(np.array[0,1,0],
+                       [0,0,0],
+                       [0,0,0])) == 0
+    assert(update_cell(np.array[0,1,0],
+                       [0,1,0],
+                       [0,0,0])) == 0
+    assert(update_cell(np.array[0,1,0],
+                       [0,0,0],
+                       [0,1,0])) == 0
+    assert(update_cell(np.array[0,1,0],
+                       [0,1,0],
+                       [0,1,0])) == 1
+    assert(update_cell(np.array[0,1,0],
+                       [1,0,0],
+                       [0,1,0])) == 1
+    assert(update_cell(np.array[0,1,0],
+                       [1,1,0],
+                       [0,1,0])) == 1
+    assert(update_cell(np.array[0,1,0],
+                       [1,0,1],
+                       [0,1,0])) == 0
+    assert(update_cell(np.array[0,1,0],
+                       [1,1,1],
+                       [0,1,0])) == 0
+    
+
+def main():
+    update_cell(np.array([0,1,0],[0,1,0],[0,0,0]))
+
+main()

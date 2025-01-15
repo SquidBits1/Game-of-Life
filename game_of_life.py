@@ -1,5 +1,11 @@
+"""
+by Rocco and Gilad
+"""
+
 import numpy as np
 import random
+import matplotlib.pyplot as plt
+
 
 DEAD = 0
 ALIVE = 1

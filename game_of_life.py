@@ -50,7 +50,10 @@ def update_cell(cell_section: np.array):
     if c >= 4:
         return 0
 def display_grid(grid):
-    pass
+    display_array = grid.copy()
+    plt.imshow(display_array, cmap='gray')
+    plt.show()
+
 
 
 
